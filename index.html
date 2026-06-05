@@ -159,6 +159,14 @@ img,svg{display:block;max-width:100%}
 .hl span{font-size:12.5px;font-weight:600;background:var(--paper-2);border:1px solid var(--line-soft);border-radius:99px;padding:5px 11px;color:var(--ink)}
 .hl span.must{background:#fbe9cf;border-color:#e7b870;color:var(--rust-deep)}
 .hl span.must::before{content:"★ ";color:var(--ochre)}
+.see{display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.see-item{background:var(--card-2);border:1px solid var(--line-soft);border-radius:12px;padding:10px 13px 11px;position:relative}
+.see-item.must{background:#fbe9cf;border-color:#e7b870}
+.see-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;line-height:1.2}
+.see-n{font-weight:700;font-size:14px;color:var(--ink)}
+.see-item.must .see-n::before{content:"★ ";color:var(--ochre)}
+.see-badge{font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);background:rgba(47,111,110,.12);padding:2px 7px;border-radius:6px}
+.see-d{margin:5px 0 0;font-size:12.8px;line-height:1.5;color:var(--ink-soft)}
 
 .hotels{display:grid;gap:9px;margin-top:4px}
 .hotel{display:flex;align-items:center;gap:12px;border:1px solid var(--line-soft);border-radius:12px;padding:10px 12px;background:var(--card-2);position:relative}
@@ -297,16 +305,22 @@ const NODES = {
   grandcanyon:{label:"Grand Canyon",      lat:36.0544, lng:-112.1401, type:"stop", num:9},
   kingman:   {label:"Kingman",            lat:35.1894, lng:-114.0530, type:"stop", num:10},
   la:        {label:"Los Angeles",        lat:34.0522, lng:-118.2437, type:"stop", num:11},
-  pismo:     {label:"Pismo / Morro Bay",  lat:35.2000, lng:-120.7000, type:"stop", num:12},
+  morrobay:  {label:"Morro Bay",          lat:35.3658, lng:-120.8499, type:"sight"},
+  monterey:  {label:"Monterey",           lat:36.6002, lng:-121.8947, type:"sight"},
 };
 
-const ROUTE = ["sf","mariposa","yosemite","fresno","sequoia","bakersfield","deathvalley","vegas","zion","bryce","page","monument","grandcanyon","kingman","la","pismo","sf"];
+const ROUTE = ["sf","mariposa","yosemite","fresno","sequoia","bakersfield","deathvalley","vegas","zion","bryce","page","monument","grandcanyon","kingman","la","morrobay","monterey","sf"];
 
 const DAYS = [
  {date:"30 lug", scene:"sf", kick:"Arrivo · California", title:"San Francisco", night:"sf",
   desc:"Atterraggio a SFO alle 13:15, ritiro dell'auto a noleggio, check-in e un primo pomeriggio tranquillo per ambientarsi e battere il jet lag.",
   segs:[{stay:"Giornata di arrivo · pomeriggio libero a San Francisco"}],
-  hl:["Ritiro auto a SFO","Check-in hotel","Primo giro libero","Fisherman's Wharf"],
+  hl:[
+    {n:"Ritiro auto a SFO",d:"Ritiro dell'auto a noleggio in aeroporto: controllate franchigia assicurativa, eventuale guidatore aggiuntivo e la politica sul pieno."},
+    {n:"Fisherman's Wharf & Pier 39",must:true,d:"Il molo turistico più famoso: leoni marini sdraiati al Pier 39, clam chowder servito nella pagnotta e prima vista sulla baia."},
+    {n:"Ghirardelli Square",tip:true,d:"Ex fabbrica di cioccolato trasformata in piazza con negozi e una storica cioccolateria-gelateria."},
+    {n:"Embarcadero",tip:true,d:"Lungomare pianeggiante verso il Ferry Building: perfetto per sgranchirsi e prendere il primo sole senza affaticarsi col jet lag."},
+  ],
   hotels:[
     {n:"City Center Inn & Suites",pr:"132",per:"x4",perks:["Colazione","Cancellazione","Posto auto"],pref:true},
     {n:"Greenwich Inn",pr:"146",per:"x4",perks:["Parcheggio gratis se disp.","Cancellazione"]},
@@ -316,7 +330,13 @@ const DAYS = [
  {date:"31 lug", scene:"sierra", kick:"California · verso la Sierra", title:"San Francisco → Mariposa", night:"mariposa",
   desc:"Giornata quasi piena per godersi San Francisco. Nel tardo pomeriggio partenza verso le porte di Yosemite, con pernotto a Mariposa.",
   segs:[{from:"San Francisco",to:"Mariposa",km:"250",tm:"3h30–4h"}],
-  hl:["Golden Gate Bridge","Lombard Street","Painted Ladies","Pier 39 & cable car","Partenza pomeriggio"],
+  hl:[
+    {n:"Golden Gate Bridge",must:true,d:"Il ponte rosso simbolo della città: la vista migliore è dal belvedere di Battery Spencer o dal prato di Crissy Field."},
+    {n:"Lombard Street",d:"La \"strada più tortuosa del mondo\": otto stretti tornanti in discesa incorniciati da aiuole fiorite."},
+    {n:"Painted Ladies",d:"La fila di case vittoriane colorate di Alamo Square, con lo skyline dei grattacieli alle spalle."},
+    {n:"Cable Car",d:"I tram storici a fune che arrancano su e giù per le colline: un giro almeno una volta è d'obbligo."},
+    {n:"Twin Peaks",tip:true,d:"Le colline gemelle con il panorama più ampio su città, baia e i due ponti: ottimo prima di partire verso la Sierra."},
+  ],
   notes:[{t:"Groveland è risultata troppo costosa: si dorme a Mariposa."}],
   hotels:[
     {n:"Miners Inn",pr:"170",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
@@ -328,8 +348,17 @@ const DAYS = [
  {date:"1 ago", scene:"yosemite", kick:"Sierra Nevada", title:"Yosemite → Fresno", night:"fresno",
   desc:"Giornata piena dentro lo Yosemite con le tappe classiche della valle. In serata trasferimento verso Fresno per il pernotto.",
   segs:[{from:"Mariposa",to:"Yosemite",km:"75",tm:"1h45"},{from:"Yosemite",to:"Fresno",km:"160",tm:"2h30"}],
-  hl:["Tunnel View","Yosemite Valley","Bridalveil Fall","Glacier Point","Taft Point"],
-  notes:[{t:"In alternativa valutare Exeter come base per la notte."}],
+  hl:[
+    {n:"Tunnel View",must:true,d:"Il colpo d'occhio classico sulla valle: El Capitan a sinistra, Half Dome in fondo e la cascata Bridalveil in un'unica inquadratura."},
+    {n:"Yosemite Valley",d:"Il cuore del parco: prati, il fiume Merced e pareti di granito a strapiombo su ogni lato."},
+    {n:"El Capitan",tip:true,d:"Il monolite di granito di circa 900 m, palestra leggendaria degli scalatori di tutto il mondo."},
+    {n:"Half Dome",tip:true,d:"La cupola \"tagliata a metà\", la sagoma più riconoscibile di Yosemite."},
+    {n:"Bridalveil Fall",d:"Cascata \"velo da sposa\" da 188 m, raggiungibile con una breve passeggiata dal parcheggio."},
+    {n:"Glacier Point",d:"Terrazza panoramica in quota affacciata sulla valle e su Half Dome (strada aperta solo d'estate)."},
+    {n:"Taft Point",d:"Affaccio vertiginoso con le caratteristiche fenditure nella roccia (le \"fissures\") e vuoto sotto i piedi."},
+    {n:"Mariposa Grove",tip:true,d:"Il bosco di sequoie giganti del parco, con alberi millenari come il Grizzly Giant."},
+  ],
+  notes:[{t:"In alternativa valutare Exeter come base per la notte."},{t:"Sono più cose di quante se ne facciano in un giorno: meglio sceglierne 3-4 (es. Tunnel View + Valley + Glacier Point)."}],
   hotels:[
     {n:"Sequoia Motel",pr:"97",per:"x4",perks:["Cancellazione"],pref:true,sub:"doppia €83"},
     {n:"Best Western Village Inn",pr:"141",per:"x4",perks:["Colazione","Cancellazione"]},
@@ -339,7 +368,14 @@ const DAYS = [
  {date:"2 ago", scene:"sequoia", kick:"Alberi giganti", title:"Sequoia → Bakersfield", night:"bakersfield",
   desc:"Mattina dedicata al Sequoia National Park e ai suoi alberi millenari, poi trasferimento serale verso Bakersfield.",
   segs:[{from:"Fresno",to:"Sequoia NP",km:"130",tm:"1h30"},{from:"Sequoia NP",to:"Bakersfield",km:"160",tm:"2h"}],
-  hl:["General Sherman Tree","Giant Forest","Moro Rock","Tunnel Log"],
+  hl:[
+    {n:"General Sherman Tree",must:true,d:"L'albero più grande del mondo per volume: una sequoia gigante alta 83 m e larga 11 m alla base."},
+    {n:"Giant Forest",d:"Il bosco con la più alta concentrazione di sequoie giganti, attraversato da sentieri tra i tronchi enormi."},
+    {n:"Moro Rock",d:"Cupola di granito con una scalinata di ~350 gradini scavata nella roccia e vista a 360° sulla Sierra."},
+    {n:"Tunnel Log",d:"Un tronco gigante caduto e scavato a tunnel, sotto cui si passa in auto: foto d'obbligo."},
+    {n:"Big Trees Trail",tip:true,d:"Anello facile e pianeggiante attorno a un prato circondato da sequoie, ideale per le gambe stanche."},
+    {n:"Crescent Meadow",tip:true,d:"Prato verde che John Muir definì \"il gioiello della Sierra\", spesso con cervi al pascolo."},
+  ],
   hotels:[
     {n:"Ramada by Wyndham",pr:"120",per:"x4",perks:["Colazione","Cancellazione"],pref:true,sub:"doppia €96"},
     {n:"Hampton Inn & Suites Central",pr:"126",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
@@ -354,8 +390,20 @@ const DAYS = [
     {from:"Bakersfield",to:"Las Vegas",km:"600",tm:"6h",opt:"Via Death Valley"},
     {from:"Bakersfield",to:"Las Vegas",km:"470",tm:"4h30",opt:"Diretto"}
   ],
-  hl:["Zabriskie Point","Dante's View","Badwater Basin","Las Vegas Strip"],
-  notes:[{t:"Scegliere il percorso: Death Valley è più lunga ma spettacolare; la diretta fa risparmiare ~1h30."}],
+  hl:[
+    {n:"Zabriskie Point",must:true,d:"Affaccio sui calanchi dorati e ondulati della valle: spettacolare con la luce radente del mattino."},
+    {n:"Dante's View",d:"Terrazza a 1.600 m da cui si abbraccia tutta la Death Valley fino al Badwater Basin."},
+    {n:"Badwater Basin",d:"Il punto più basso del Nord America (-86 m): una distesa di crostoni di sale a perdita d'occhio."},
+    {n:"Artist's Palette",tip:true,d:"Collina dipinta di verde, rosa e viola dai minerali, lungo una breve strada panoramica a senso unico."},
+    {n:"Mesquite Flat Sand Dunes",tip:true,d:"Dune di sabbia dorata facili da raggiungere vicino a Stovepipe Wells."},
+    {n:"Las Vegas Strip",d:"Il grande viale dei casinò e degli hotel a tema, da percorrere a piedi dopo il tramonto."},
+    {n:"Fontane del Bellagio",tip:true,d:"Spettacolo gratuito di acqua, luci e musica davanti all'hotel Bellagio, ogni 15-30 minuti."},
+    {n:"Fremont Street",tip:true,d:"La vecchia Las Vegas, con la volta di luci LED e le insegne al neon storiche."},
+  ],
+  notes:[
+    {t:"Scegliere il percorso: Death Valley è più lunga ma spettacolare; la diretta fa risparmiare ~1h30."},
+    {t:"In agosto la Death Valley è rovente (spesso oltre 45°C): partite presto, tanta acqua, pieno di benzina, e tenete le passeggiate molto brevi nelle ore centrali."}
+  ],
   hotels:[
     {n:"The LINQ",pr:"~120",per:"x4",perks:["Sulla Strip"]},
     {n:"Flamingo",pr:"~120",per:"x4",perks:["Sulla Strip"]},
@@ -364,7 +412,14 @@ const DAYS = [
  {date:"4 ago", scene:"zion", kick:"Utah · canyon rossi", title:"Zion → Bryce Canyon", night:"bryce",
   desc:"Si lascia Las Vegas per lo Zion, fra pareti rosse a strapiombo. In serata trasferimento a Bryce Canyon per la notte.",
   segs:[{from:"Las Vegas",to:"Zion NP",km:"260",tm:"2h30"},{from:"Zion NP",to:"Bryce Canyon",km:"150",tm:"2h"}],
-  hl:["Zion Canyon Scenic Drive","Emerald Pools","The Narrows","Canyon Overlook"],
+  hl:[
+    {n:"Zion Canyon Scenic Drive",must:true,d:"La strada panoramica nel cuore del canyon, tra pareti rosse altissime (in estate si percorre con la navetta gratuita)."},
+    {n:"The Narrows",d:"La gola strettissima che si risale camminando dentro il fiume Virgin, tra muraglie di roccia."},
+    {n:"Emerald Pools",d:"Sentiero verso pozze e cascatelle annidate nella vegetazione, con vari livelli di lunghezza."},
+    {n:"Canyon Overlook",d:"Breve sentiero (1,6 km) a un affaccio spettacolare sulla bassa valle dello Zion."},
+    {n:"Angels Landing",tip:true,d:"La celebre cresta esposta con catene e vuoto su entrambi i lati: serve un permesso a lotteria e niente vertigini."},
+    {n:"Riverside Walk",tip:true,d:"Passeggiata facile, piana e ombreggiata lungo il fiume; porta all'imbocco dei Narrows."},
+  ],
   notes:[{t:"Il trasferimento Zion → Bryce si può eventualmente spostare alla mattina seguente."}],
   hotels:[
     {n:"Bryce View Lodge",pr:"160",per:"x4",perks:["Colazione","Cancellazione"],sub:"unica opzione disponibile"},
@@ -373,7 +428,15 @@ const DAYS = [
  {date:"5 ago", scene:"bryce", kick:"Utah · gli hoodoos", title:"Bryce Canyon → Page", night:"page",
   desc:"Mattina tra le guglie arancioni di Bryce, poi trasferimento verso Page con arrivo in tempo per rilassarsi o per l'Horseshoe Bend.",
   segs:[{from:"Bryce Canyon",to:"Page",km:"250",tm:"2h40"}],
-  hl:["Sunrise & Sunset Point","Bryce Amphitheater","Inspiration Point","Horseshoe Bend"],
+  hl:[
+    {n:"Bryce Amphitheater",must:true,d:"La grande conca riempita di migliaia di guglie arancioni (gli \"hoodoos\"): il cuore del parco."},
+    {n:"Sunrise & Sunset Point",d:"I due affacci classici sull'anfiteatro, magnifici con la luce bassa del mattino o della sera."},
+    {n:"Inspiration Point",d:"L'affaccio più alto, con la vista più ampia e fitta sul mare di guglie."},
+    {n:"Navajo Loop / Queen's Garden",tip:true,d:"L'anello a piedi che scende tra gli hoodoos: il sentiero più bello e fotografato di Bryce (~3 km)."},
+    {n:"Thor's Hammer",tip:true,d:"Il pinnacolo a forma di martello, una delle sagome simbolo del parco."},
+    {n:"Horseshoe Bend",d:"Vicino a Page: la spettacolare ansa a ferro di cavallo del fiume Colorado, vista dall'alto."},
+    {n:"Lago Powell",tip:true,d:"Il grande lago artificiale turchese tra i canyon, con la diga di Glen Canyon: ottimo per il tramonto a Page."},
+  ],
   hotels:[
     {n:"Motel 6 Page",pr:"106",per:"x4",perks:["Cancellazione"]},
     {n:"Red Rock & Dam Motel",pr:"117",per:"x4",perks:["Cancellazione"]},
@@ -384,7 +447,13 @@ const DAYS = [
  {date:"6 ago", scene:"monument", kick:"Arizona / Utah", title:"Page → Monument Valley", night:"monument",
   desc:"Mattina con l'Antelope Canyon, poi rotta verso Monument Valley per arrivare in tempo per il tramonto sulle grandi mesa.",
   segs:[{from:"Page",to:"Monument Valley",km:"210",tm:"2h10"}],
-  hl:["Antelope Canyon (tour)","Horseshoe Bend","Forrest Gump Point","Tramonto sulle mesa"],
+  hl:[
+    {n:"Antelope Canyon",must:true,d:"Lo slot canyon dalle pareti ondulate e dai fasci di luce: solo con tour guidato (Upper più famoso per i raggi, Lower più stretto e meno affollato)."},
+    {n:"Horseshoe Bend",d:"L'ansa a ferro di cavallo del Colorado, se non già vista il giorno prima: 10 minuti a piedi dal parcheggio."},
+    {n:"Forrest Gump Point",d:"Il tratto di Route 163 con le mesa rosse sullo sfondo della celebre scena del film: foto in strada (con prudenza)."},
+    {n:"Valley Drive (17 miglia)",tip:true,d:"L'anello sterrato fra le formazioni (le Mittens, Merrick Butte…): con la propria auto o con un tour navajo."},
+    {n:"Tramonto sulle mesa",d:"La luce calda della sera che incendia di rosso le grandi formazioni: il momento clou di Monument Valley."},
+  ],
   notes:[
     {t:"Prenotare in anticipo il tour dell'Antelope Canyon."},
     {t:"The View è già pieno (mail inviata). Confermato il Wetherill Inn."}
@@ -396,7 +465,13 @@ const DAYS = [
  {date:"7 ago", scene:"grandcanyon", kick:"Arizona", title:"Monument Valley → Grand Canyon", night:"grandcanyon",
   desc:"Ultima visita a Monument Valley e poi trasferimento al South Rim del Grand Canyon, con pernotto all'interno del parco.",
   segs:[{from:"Monument Valley",to:"Grand Canyon (South Rim)",km:"290",tm:"3h15"}],
-  hl:["Valley Drive","Forrest Gump Point","Grand Canyon South Rim","Tramonto sul canyon"],
+  hl:[
+    {n:"Grand Canyon South Rim",must:true,d:"Il bordo sud del canyon, con i panorami più spettacolari e accessibili sulla grande gola scavata dal Colorado."},
+    {n:"Desert View & Watchtower",tip:true,d:"L'ingresso est del parco: la torre di vedetta in pietra e il primo, amplissimo affaccio sul canyon."},
+    {n:"Mather Point",tip:true,d:"L'affaccio panoramico più famoso, a due passi dal visitor center: spesso la prima vista \"da cartolina\"."},
+    {n:"Valley Drive",d:"Ultimo giro tra le formazioni di Monument Valley prima di lasciare l'area al mattino."},
+    {n:"Tramonto sul canyon",d:"I colori delle pareti che cambiano di continuo al calar del sole: provate Hopi Point o Yavapai Point."},
+  ],
   notes:[{t:"Pernotto interno al parco: prezzi in USD. Confermato il Maswik Lodge."}],
   hotels:[
     {n:"Maswik Lodge",pr:"213",per:"x4",perks:["Cancellazione"],cur:"$",book:true},
@@ -409,7 +484,14 @@ const DAYS = [
  {date:"8 ago", scene:"route66", kick:"Route 66 · Arizona", title:"Grand Canyon → Kingman", night:"kingman",
   desc:"Giornata ancora dedicata al Grand Canyon, poi in serata si imbocca la Route 66 passando da Williams e Seligman fino a Kingman.",
   segs:[{from:"Grand Canyon",to:"Kingman",km:"290",tm:"2h40"}],
-  hl:["Mather Point","Hermit Road","Williams","Seligman (Route 66)"],
+  hl:[
+    {n:"Hermit Road",must:true,d:"La strada panoramica a ovest (in estate con navetta) con una sequenza di affacci spettacolari fino a Hermits Rest."},
+    {n:"Yavapai Point & Geology Museum",tip:true,d:"Affaccio con un piccolo museo che spiega, finestre panoramiche alla mano, come si è formato il canyon."},
+    {n:"Bright Angel Trail",tip:true,d:"Il sentiero che scende dentro il canyon: anche solo i primi tornanti danno una prospettiva diversa (portate acqua a sufficienza)."},
+    {n:"Williams",d:"Cittadina di montagna dal sapore anni '50, una delle ultime attraversate dalla storica Route 66."},
+    {n:"Seligman",d:"Il paese che ha fatto rinascere la Route 66: insegne vintage, auto d'epoca e atmosfera kitsch."},
+    {n:"Hackberry General Store",tip:true,d:"Tappa nostalgica sulla Mother Road, tra vecchie pompe di benzina, cimeli e una Corvette rossa."},
+  ],
   notes:[{t:"Si potrebbe dormire a Williams/Seligman, ma i km slitterebbero al giorno dopo: meglio di no, è già lunga."}],
   hotels:[
     {n:"Super 8 by Wyndham Kingman",pr:"80",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
@@ -421,41 +503,75 @@ const DAYS = [
  {date:"9 ago", scene:"la-sunset", kick:"Route 66 · California", title:"Kingman → Los Angeles", night:"la",
   desc:"Ultimo tratto della Route 66 storica fino a Los Angeles, con arrivo nel pomeriggio nella città degli angeli.",
   segs:[{from:"Kingman",to:"Los Angeles",km:"520",tm:"5h"}],
-  hl:["Route 66 storica","Santa Monica Pier (fine 66)","Arrivo a Los Angeles"],
+  hl:[
+    {n:"Route 66 storica",must:true,d:"Il tratto finale del mitico percorso verso la costa, tra deserto del Mojave e cittadine d'altri tempi."},
+    {n:"Oatman",tip:true,d:"Cittadina mineraria \"fantasma\" sulla vecchia 66, con asinelli liberi che girano per la via principale (deviazione tra tornanti)."},
+    {n:"Santa Monica Pier",d:"Il molo con la ruota panoramica dove la Route 66 finisce ufficialmente: il cartello \"End of the Trail\"."},
+    {n:"Arrivo a Los Angeles",d:"Ingresso nella città degli angeli nel tardo pomeriggio: prima serata soft dopo la lunga guida."},
+  ],
+  notes:[{t:"Giornata lunga (520 km): la deviazione per Oatman è suggestiva ma allunga i tempi, valutatela in base all'orario."}],
   hotels:[{tbd:"Alloggio a Los Angeles da definire (3 notti)"}]},
 
  {date:"10 ago", scene:"la-city", kick:"Los Angeles", title:"Los Angeles", night:"la",
   desc:"Giornata piena in città fra cinema, colline e oceano.",
   segs:[{stay:"Nessuno spostamento · giornata a Los Angeles"}],
-  hl:["Hollywood & Walk of Fame","Griffith Observatory","Beverly Hills","Santa Monica / Venice"],
+  hl:[
+    {n:"Griffith Observatory",must:true,d:"Osservatorio sulla collina con la vista più bella sull'Hollywood Sign e su tutta la città; ingresso gratuito."},
+    {n:"Hollywood & Walk of Fame",d:"Il boulevard delle stelle sul marciapiede e il TCL Chinese Theatre con le impronte dei divi."},
+    {n:"Hollywood Sign",tip:true,d:"La celebre scritta bianca sulla collina: si fotografa bene dal Griffith o dai sentieri di Griffith Park."},
+    {n:"Beverly Hills & Rodeo Drive",d:"Il quartiere del lusso e la via delle boutique più esclusive, tra palme e ville."},
+    {n:"Santa Monica & Venice",d:"Spiagge ampie, lungomare, la Muscle Beach e i canali di Venice da girare a piedi o in bici."},
+    {n:"The Getty Center",tip:true,d:"Museo d'arte gratuito su una collina, raggiunto da una monorotaia, con architettura, giardini e vista sulla città."},
+  ],
   hotels:[{tbd:"Stesso alloggio a Los Angeles"}]},
 
  {date:"11 ago", scene:"la-city", kick:"Los Angeles", title:"Los Angeles", night:"la",
   desc:"Seconda giornata piena: spiagge, downtown ed eventuale parco a tema.",
   segs:[{stay:"Nessuno spostamento · giornata a Los Angeles"}],
-  hl:["Venice & Malibu","Downtown LA","Universal / Disney (opzionale)"],
+  hl:[
+    {n:"Universal Studios / Disneyland",must:true,d:"I grandi parchi a tema (opzionali): ciascuno richiede una giornata intera, meglio sceglierne uno e prenotare i biglietti."},
+    {n:"Downtown LA",d:"Il centro con i grattacieli, il futuristico Walt Disney Concert Hall di Frank Gehry e il Grand Central Market."},
+    {n:"Malibu",d:"Spiagge larghe e ville sull'oceano lungo la Pacific Coast Highway, con il celebre Malibu Pier."},
+    {n:"Venice Beach",d:"Il lungomare più scenografico: skater, palestra all'aperto, murales e bancarelle."},
+    {n:"The Broad / arte",tip:true,d:"Museo di arte contemporanea nel cuore di Downtown (ingresso gratuito): alternativa al parco a tema."},
+  ],
   hotels:[{tbd:"Stesso alloggio a Los Angeles"}]},
 
- {date:"12 ago", scene:"coast", kick:"Pacific Coast", title:"Los Angeles → Costa", night:"pismo",
-  desc:"Ultima mattina a Los Angeles, poi nel pomeriggio si parte verso nord lungo la costa, con pernotto a metà strada.",
-  segs:[
-    {from:"Los Angeles",to:"Pismo Beach",km:"~300",tm:"3h30",opt:"Opzione 1"},
-    {from:"Los Angeles",to:"Morro Bay",km:"~370",tm:"4h15",opt:"Opzione 2"}
+ {date:"12 ago", scene:"coast", kick:"Pacific Coast Highway", title:"Los Angeles → San Francisco", night:"sf",
+  desc:"Sveglia presto e risalita di tutta la costa in giornata, sulla litoranea, mantenendo le soste più belle del Pacifico. Arrivo a San Francisco in serata.",
+  segs:[{from:"Los Angeles",to:"San Francisco",km:"~680",tm:"8h30 (+ soste)"}],
+  hl:[
+    {n:"Big Sur & Bixby Bridge",must:true,tip:true,d:"Il tratto più spettacolare della Highway 1: scogliere a picco sull'oceano e il fotografatissimo ponte ad arco di Bixby Creek (guida lenta, mette in conto tempo)."},
+    {n:"Morro Rock",d:"Il grande monolite vulcanico che spunta dall'acqua a Morro Bay: bella sosta a metà mattina."},
+    {n:"17-Mile Drive",d:"Strada panoramica privata tra Pebble Beach e Monterey, con il celebre Lone Cypress aggrappato alla scogliera (pedaggio)."},
+    {n:"Monterey / Cannery Row",tip:true,d:"Il lungomare con l'acquario famoso e la via resa celebre da Steinbeck: ottima pausa pranzo."},
+    {n:"Santa Cruz",d:"Cittadina balneare con il classico molo e il luna park sulla spiaggia (Beach Boardwalk)."},
   ],
-  hl:["Pacific Coast Highway","Tramonto sull'oceano","Pismo / Grover / Morro Bay"],
-  notes:[{t:"Si può scegliere fra litoranea e via centrale. Pernotto a Grover/Pismo (3h30) o Morro Bay (4h15)."}],
-  hotels:[{tbd:"Alloggio sulla costa da definire"}]},
+  notes:[{t:"È la giornata più lunga del viaggio: partite all'alba e, per arrivare a SF in serata, valutate di saltare qualche sosta o di tenere la US-101 (più veloce) nei tratti meno panoramici. Big Sur da solo è lento."}],
+  hotels:[{tbd:"Alloggio a San Francisco (2 notti) da definire"}]},
 
- {date:"13 ago", scene:"coast2", kick:"Pacific Coast", title:"Costa → San Francisco", night:"sf",
-  desc:"Risalita lungo la costa con possibili soste fra le più belle del Pacifico, arrivo a San Francisco entro sera.",
-  segs:[{from:"Pismo / Morro Bay",to:"San Francisco",km:"~330",tm:"4h"}],
-  hl:["Morro Rock","Monterey & 17-Mile Drive","Santa Cruz","San José"],
-  hotels:[{tbd:"Alloggio a San Francisco da definire"}]},
+ {date:"13 ago", scene:"sf", kick:"California · giorno pieno", title:"San Francisco", night:"sf",
+  desc:"Giornata intera per vivere San Francisco con calma: colline, baia, quartieri e oceano, senza spostamenti in auto.",
+  segs:[{stay:"Nessuno spostamento · giornata a San Francisco"}],
+  hl:[
+    {n:"Alcatraz",must:true,tip:true,d:"L'ex prigione di massima sicurezza sull'isola nella baia: tour in battello molto richiesto, da prenotare con largo anticipo."},
+    {n:"Pier 39 & Fisherman's Wharf",d:"Il molo con i leoni marini, le bancarelle di clam chowder e le vedute su Alcatraz e il Golden Gate."},
+    {n:"Chinatown",tip:true,d:"La Chinatown più antica del Nord America: portale d'ingresso, lanterne rosse, erboristerie e ristoranti."},
+    {n:"Ferry Building & Embarcadero",tip:true,d:"Mercato gastronomico nello storico edificio dei traghetti, affacciato sul lungomare della baia."},
+    {n:"Golden Gate Park",tip:true,d:"Grande parco urbano con musei (de Young, Academy of Sciences), il giardino giapponese e tanto verde."},
+    {n:"Coit Tower / Telegraph Hill",tip:true,d:"Torre Art Déco in cima alla collina con vista a 360° su città, baia e ponti."},
+    {n:"Mission District",tip:true,d:"Il quartiere dei murales e dei migliori burrito della città: colore e street food."},
+  ],
+  hotels:[{tbd:"Stesso alloggio a San Francisco"}]},
 
  {date:"14 ago", scene:"sf", kick:"Rientro · volo per Roma", title:"San Francisco → SFO", night:"sf",
   desc:"Ultima mattina tranquilla in città, poi consegna dell'auto e aeroporto per il volo delle 15:15 verso casa.",
   segs:[{stay:"Mattina libera · poi SFO, volo 15:15 per Roma"}],
-  hl:["Ultima passeggiata","Consegna auto","Volo SFO 15:15"],
+  hl:[
+    {n:"Ultima passeggiata",d:"Mattinata libera per un ultimo giro o gli acquisti dell'ultimo minuto prima di lasciare la città."},
+    {n:"Consegna auto",d:"Riconsegna dell'auto a noleggio: pieno di benzina e controllo di non aver lasciato nulla a bordo."},
+    {n:"Volo SFO 15:15",d:"Trasferimento in aeroporto con ampio anticipo e volo delle 15:15 verso Roma."},
+  ],
   hotels:[]},
 ];
 
@@ -669,6 +785,12 @@ function hotelHTML(h){
 function dayHTML(d,i){
   const hotels = (d.hotels&&d.hotels.length)? `<div class="subh">Dove dormire</div><div class="hotels">${d.hotels.map(hotelHTML).join('')}</div>` : '';
   const notes = (d.notes||[]).map(nt=>`<div class="note"><span class="i">!</span><span>${nt.t}</span></div>`).join('');
+  const seeHTML = d.hl.map(x=>{
+    if(typeof x === 'string') return `<div class="see-item"><div class="see-h"><span class="see-n">${x}</span></div></div>`;
+    const badge = x.tip ? `<span class="see-badge">✦ consiglio</span>` : '';
+    const desc = x.d ? `<p class="see-d">${x.d}</p>` : '';
+    return `<div class="see-item ${x.must?'must':''}"><div class="see-h"><span class="see-n">${x.n}</span>${badge}</div>${desc}</div>`;
+  }).join('');
   return `<div class="day reveal" id="day-${i}">
     <div class="knob">${i+1}</div>
     <div class="daycard">
@@ -681,7 +803,7 @@ function dayHTML(d,i){
         <p class="desc">${d.desc}</p>
         <div class="segs">${d.segs.map(segHTML).join('')}</div>
         <div class="subh">Cosa vedere & fare</div>
-        <div class="hl">${d.hl.map((x,k)=>`<span class="${k===0?'must':''}">${x}</span>`).join('')}</div>
+        <div class="see">${seeHTML}</div>
         ${notes}
         ${hotels}
         ${d.night?`<button class="mapbtn" data-day="${i}">◎ Vedi sulla mappa</button>`:''}
@@ -713,7 +835,8 @@ const LBL={ // label placement per node: anchor + dx + dy
   sf:['end',-22,-12], mariposa:['end',-20,16], yosemite:['start',16,-10], fresno:['end',-20,6],
   sequoia:['start',16,8], bakersfield:['end',-20,12], deathvalley:['middle',0,-22], vegas:['middle',0,26],
   zion:['middle',0,-20], bryce:['start',16,-12], page:['start',18,-2], monument:['start',18,4],
-  grandcanyon:['middle',0,30], kingman:['end',-20,8], la:['end',-22,4], pismo:['end',-20,-6]
+  grandcanyon:['middle',0,30], kingman:['end',-20,8], la:['end',-22,4],
+  morrobay:['end',-20,2], monterey:['end',-20,-6]
 };
 function statePos(lat,lng,rot,size,txt){
   const [x,y]=PROJ(lat,lng);
@@ -788,12 +911,12 @@ function buildMap(){
 function highlightSegment(i){
   const d=DAYS[i]; if(!d) return;
   // build segment nodes for the day: from the day's route if available, else just the night node
-  const order=["sf","mariposa","yosemite","fresno","sequoia","bakersfield","deathvalley","vegas","zion","bryce","page","monument","grandcanyon","kingman","la","pismo","sf"];
+  const order=["sf","mariposa","yosemite","fresno","sequoia","bakersfield","deathvalley","vegas","zion","bryce","page","monument","grandcanyon","kingman","la","morrobay","monterey","sf"];
   // derive from segs: collect node keys by matching labels is fragile; instead use known per-day routes
   const ROUTES=[
     ["sf"],["sf","mariposa"],["mariposa","yosemite","fresno"],["fresno","sequoia","bakersfield"],
     ["bakersfield","deathvalley","vegas"],["vegas","zion","bryce"],["bryce","page"],["page","monument"],
-    ["monument","grandcanyon"],["grandcanyon","kingman"],["kingman","la"],["la"],["la"],["la","pismo"],["pismo","sf"],["sf"]
+    ["monument","grandcanyon"],["grandcanyon","kingman"],["kingman","la"],["la"],["la"],["la","morrobay","monterey","sf"],["sf"],["sf"]
   ];
   const keys=ROUTES[i]||[d.night];
   const hl=document.getElementById('hl');
