@@ -47,10 +47,10 @@ body::before{
 h1,h2,h3,.display{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.02;letter-spacing:-.01em}
 a{color:inherit}
 img,svg{display:block;max-width:100%}
-
+ 
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
 .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--rust)}
-
+ 
 /* ---------- NAV ---------- */
 .nav{
   position:sticky;top:0;z-index:200;
@@ -67,7 +67,7 @@ img,svg{display:block;max-width:100%}
 }
 .nav .links a:hover{background:var(--paper-2);color:var(--ink)}
 @media(max-width:640px){.nav .links a{padding:8px 10px;font-size:12.5px}.brand span.full{display:none}}
-
+ 
 /* ---------- HERO ---------- */
 .hero{position:relative;color:#fbeede;overflow:hidden}
 .hero .scene{position:absolute;inset:0;width:100%;height:100%}
@@ -81,10 +81,10 @@ img,svg{display:block;max-width:100%}
 .hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 22px;font-weight:600;font-size:14px;color:#ffeccb}
 .hero .meta b{color:#fff}
 .hero-fade{position:absolute;left:0;right:0;bottom:-1px;height:120px;z-index:2;background:linear-gradient(to bottom,transparent,var(--paper))}
-
+ 
 /* ---------- STATS ---------- */
 .stats{max-width:var(--maxw);margin:-92px auto 0;padding:0 22px;position:relative;z-index:5}
-.stats .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.stats .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:var(--shadow-sm);position:relative}
 .stat::after{content:"";position:absolute;left:16px;top:14px;width:22px;height:3px;background:var(--rust);border-radius:2px;opacity:.8}
 .stat .n{font-family:"Fraunces";font-weight:600;font-size:30px;line-height:1;margin-top:14px;letter-spacing:-.02em}
@@ -94,14 +94,14 @@ img,svg{display:block;max-width:100%}
 .stat.count .l{color:#ffe0bf}
 @media(max-width:880px){.stats .grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:480px){.stats .grid{grid-template-columns:repeat(2,1fr)} .stat .n{font-size:26px}}
-
+ 
 /* ---------- SECTION HEADERS ---------- */
 .section{padding:66px 0 10px}
 .sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px}
 .sechead h2{font-size:clamp(28px,4.4vw,44px);margin:8px 0 0;font-weight:600}
 .sechead p{margin:6px 0 0;color:var(--ink-soft);max-width:52ch;font-size:15px;line-height:1.55}
 .rule{height:1px;background:var(--line);margin:6px 0}
-
+ 
 /* ---------- MAP ---------- */
 .mapcard{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
 .maptop{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line-soft);background:var(--card-2)}
@@ -122,7 +122,7 @@ img,svg{display:block;max-width:100%}
 .mk-num{font-family:"Fraunces";font-weight:700;font-size:13px;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none}
 .mk.active circle.pin{stroke:#fff;stroke-width:3}
 .state-label{font-family:"Fraunces";font-weight:600;fill:var(--ink);opacity:.13;letter-spacing:.18em;text-transform:uppercase}
-
+ 
 /* ---------- TIMELINE / DAY CARDS ---------- */
 .timeline{position:relative}
 .spine{position:absolute;left:34px;top:10px;bottom:10px;width:2px;background:repeating-linear-gradient(to bottom,var(--rust) 0 8px,transparent 8px 16px);opacity:.45}
@@ -142,7 +142,7 @@ img,svg{display:block;max-width:100%}
 .dh::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,12,6,.5),transparent 46%);pointer-events:none}
 .dbody{padding:18px 20px 20px}
 .desc{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0 0 14px}
-
+ 
 .segs{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
 .seg{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card-2);border:1px solid var(--line-soft);border-radius:12px;padding:9px 12px;font-size:13.5px}
 .seg .road{font-weight:700}
@@ -153,7 +153,7 @@ img,svg{display:block;max-width:100%}
 .seg.stay{color:var(--sage);font-weight:700;background:rgba(111,130,96,.1);border-color:rgba(111,130,96,.25)}
 .seg.opt{border-style:dashed}
 .seg .optl{font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);background:rgba(189,79,46,.12);padding:2px 7px;border-radius:6px}
-
+ 
 .subh{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin:16px 0 9px}
 .hl{display:flex;flex-wrap:wrap;gap:7px}
 .hl span{font-size:12.5px;font-weight:600;background:var(--paper-2);border:1px solid var(--line-soft);border-radius:99px;padding:5px 11px;color:var(--ink)}
@@ -167,7 +167,7 @@ img,svg{display:block;max-width:100%}
 .see-item.must .see-n::before{content:"★ ";color:var(--ochre)}
 .see-badge{font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);background:rgba(47,111,110,.12);padding:2px 7px;border-radius:6px}
 .see-d{margin:5px 0 0;font-size:12.8px;line-height:1.5;color:var(--ink-soft)}
-
+ 
 .hotels{display:grid;gap:9px;margin-top:4px}
 .hotel{display:flex;align-items:center;gap:12px;border:1px solid var(--line-soft);border-radius:12px;padding:10px 12px;background:var(--card-2);position:relative}
 .hotel.book{border-color:var(--sage);background:rgba(111,130,96,.09)}
@@ -185,19 +185,19 @@ img,svg{display:block;max-width:100%}
 .note{display:flex;gap:9px;font-size:12.5px;color:var(--ink-soft);background:#fbe9cf;border:1px solid #ecc88a;border-radius:10px;padding:9px 12px;margin-top:8px;line-height:1.45}
 .note b{color:var(--rust-deep)}
 .note .i{color:var(--ochre);font-weight:900;flex:none}
-
+ 
 .mapbtn{margin-top:14px;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--rust);color:var(--rust-deep);background:transparent;
   font-weight:700;font-size:13px;border-radius:99px;padding:9px 16px;cursor:pointer;transition:.2s;font-family:inherit}
 .mapbtn:hover{background:var(--rust);color:#fff}
-
+ 
 /* footer */
 .foot{margin-top:30px;padding:40px 0 70px;border-top:1px solid var(--line);color:var(--ink-faint);font-size:13px}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
-
+ 
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(22px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
-
+ 
 @media(max-width:680px){
   .day{padding-left:0}
   .spine,.day .knob{display:none}
@@ -206,7 +206,7 @@ img,svg{display:block;max-width:100%}
 </style>
 </head>
 <body>
-
+ 
 <nav class="nav">
   <div class="wrap">
     <div class="brand"><span class="badge">66</span><span class="full">Grand Tour · Ovest USA</span></div>
@@ -217,7 +217,7 @@ img,svg{display:block;max-width:100%}
     </div>
   </div>
 </nav>
-
+ 
 <header class="hero" id="top">
   <div class="scene" id="heroScene"></div>
   <div class="inner">
@@ -232,13 +232,13 @@ img,svg{display:block;max-width:100%}
   </div>
   <div class="hero-fade"></div>
 </header>
-
+ 
 <section class="stats" id="statsRow">
   <div class="grid" id="statGrid"></div>
 </section>
-
+ 
 <main class="wrap">
-
+ 
   <section class="section" id="mappa">
     <div class="sechead reveal">
       <div>
@@ -262,7 +262,7 @@ img,svg{display:block;max-width:100%}
       </div>
     </div>
   </section>
-
+ 
   <section class="section" id="tappe">
     <div class="sechead reveal">
       <div>
@@ -277,18 +277,18 @@ img,svg{display:block;max-width:100%}
     </div>
   </section>
 </main>
-
+ 
 <footer class="foot">
   <div class="wrap">
     <span>Grand Tour · Ovest USA — pianificazione di gruppo</span>
     <span>★ preferito · ✓ prenotato · prezzi indicativi per camera quadrupla</span>
   </div>
 </footer>
-
+ 
 <script>
 /* ============================ DATA ============================ */
 const TRIP = { start:"2026-07-30" };
-
+ 
 const NODES = {
   sf:        {label:"San Francisco",      lat:37.7749, lng:-122.4194, type:"stop", num:1},
   mariposa:  {label:"Mariposa",           lat:37.4849, lng:-119.9663, type:"stop", num:2},
@@ -308,9 +308,9 @@ const NODES = {
   morrobay:  {label:"Morro Bay",          lat:35.3658, lng:-120.8499, type:"sight"},
   monterey:  {label:"Monterey",           lat:36.6002, lng:-121.8947, type:"sight"},
 };
-
+ 
 const ROUTE = ["sf","mariposa","yosemite","fresno","sequoia","bakersfield","deathvalley","vegas","zion","bryce","page","monument","grandcanyon","kingman","la","morrobay","monterey","sf"];
-
+ 
 const DAYS = [
  {date:"30 lug", scene:"sf", kick:"Arrivo · California", title:"San Francisco", night:"sf",
   desc:"Atterraggio a SFO alle 13:15, ritiro dell'auto a noleggio, check-in e un primo pomeriggio tranquillo per ambientarsi e battere il jet lag.",
@@ -322,11 +322,9 @@ const DAYS = [
     {n:"Embarcadero",tip:true,d:"Lungomare pianeggiante verso il Ferry Building: perfetto per sgranchirsi e prendere il primo sole senza affaticarsi col jet lag."},
   ],
   hotels:[
-    {n:"City Center Inn & Suites",pr:"132",per:"x4",perks:["Colazione","Cancellazione","Posto auto"],pref:true},
-    {n:"Greenwich Inn",pr:"146",per:"x4",perks:["Parcheggio gratis se disp.","Cancellazione"]},
-    {n:"Francisco Bay Inn",pr:"200",per:"x4",perks:["Cancellazione","Posto auto"]},
+    {n:"Greenwich Inn",pr:"147",per:"x4",perks:["Parcheggio gratis","Cancellazione"],book:true},
   ]},
-
+ 
  {date:"31 lug", scene:"sierra", kick:"California · verso la Sierra", title:"San Francisco → Mariposa", night:"mariposa",
   desc:"Giornata quasi piena per godersi San Francisco. Nel tardo pomeriggio partenza verso le porte di Yosemite, con pernotto a Mariposa.",
   segs:[{from:"San Francisco",to:"Mariposa",km:"250",tm:"3h30–4h"}],
@@ -337,14 +335,10 @@ const DAYS = [
     {n:"Cable Car",d:"I tram storici a fune che arrancano su e giù per le colline: un giro almeno una volta è d'obbligo."},
     {n:"Twin Peaks",tip:true,d:"Le colline gemelle con il panorama più ampio su città, baia e i due ponti: ottimo prima di partire verso la Sierra."},
   ],
-  notes:[{t:"Groveland è risultata troppo costosa: si dorme a Mariposa."}],
   hotels:[
-    {n:"Miners Inn",pr:"170",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
-    {n:"The Yosemite Inn",pr:"175",per:"x4",perks:["Cancellazione"],pref:true},
-    {n:"The Monarch Inn",pr:"170–190",per:"x4",perks:["Cancellazione"]},
-    {n:"River Rock Inn",pr:"200",per:"x4",perks:["Cancellazione"]},
+    {n:"Miners Inn",pr:"166",per:"x4",perks:["Colazione","Cancellazione"],book:true},
   ]},
-
+ 
  {date:"1 ago", scene:"yosemite", kick:"Sierra Nevada", title:"Yosemite → Fresno", night:"fresno",
   desc:"Giornata piena dentro lo Yosemite con le tappe classiche della valle. In serata trasferimento verso Fresno per il pernotto.",
   segs:[{from:"Mariposa",to:"Yosemite",km:"75",tm:"1h45"},{from:"Yosemite",to:"Fresno",km:"160",tm:"2h30"}],
@@ -358,13 +352,10 @@ const DAYS = [
     {n:"Taft Point",d:"Affaccio vertiginoso con le caratteristiche fenditure nella roccia (le \"fissures\") e vuoto sotto i piedi."},
     {n:"Mariposa Grove",tip:true,d:"Il bosco di sequoie giganti del parco, con alberi millenari come il Grizzly Giant."},
   ],
-  notes:[{t:"In alternativa valutare Exeter come base per la notte."},{t:"Sono più cose di quante se ne facciano in un giorno: meglio sceglierne 3-4 (es. Tunnel View + Valley + Glacier Point)."}],
   hotels:[
-    {n:"Sequoia Motel",pr:"97",per:"x4",perks:["Cancellazione"],pref:true,sub:"doppia €83"},
-    {n:"Best Western Village Inn",pr:"141",per:"x4",perks:["Colazione","Cancellazione"]},
-    {n:"Hampton Inn",pr:"160",per:"x4",perks:["Colazione","Cancellazione"]},
+    {n:"Sequoia Motel",pr:"98",per:"x4",perks:["Cancellazione"],book:true},
   ]},
-
+ 
  {date:"2 ago", scene:"sequoia", kick:"Alberi giganti", title:"Sequoia → Bakersfield", night:"bakersfield",
   desc:"Mattina dedicata al Sequoia National Park e ai suoi alberi millenari, poi trasferimento serale verso Bakersfield.",
   segs:[{from:"Fresno",to:"Sequoia NP",km:"130",tm:"1h30"},{from:"Sequoia NP",to:"Bakersfield",km:"160",tm:"2h"}],
@@ -377,13 +368,9 @@ const DAYS = [
     {n:"Crescent Meadow",tip:true,d:"Prato verde che John Muir definì \"il gioiello della Sierra\", spesso con cervi al pascolo."},
   ],
   hotels:[
-    {n:"Ramada by Wyndham",pr:"120",per:"x4",perks:["Colazione","Cancellazione"],pref:true,sub:"doppia €96"},
-    {n:"Hampton Inn & Suites Central",pr:"126",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
-    {n:"La Quinta",pr:"100",per:"x4",perks:["Colazione","Cancellazione"]},
-    {n:"Vagabond Inn South",pr:"64",per:"x4",perks:["Colazione","Cancellazione"]},
-    {n:"Best Western Plus Hill House",pr:"148",per:"x4",perks:["Cancellazione"],sub:"doppia €110"},
+    {n:"Vagabond Inn South",pr:"61",per:"x4",perks:["Colazione","Cancellazione"],book:true},
   ]},
-
+ 
  {date:"3 ago", scene:"deathvalley", kick:"Nel deserto · Nevada", title:"Bakersfield → Las Vegas", night:"vegas",
   desc:"Partenza presto. Due opzioni: la traversata scenografica della Death Valley oppure la via diretta. Arrivo a Las Vegas nel pomeriggio.",
   segs:[
@@ -405,10 +392,9 @@ const DAYS = [
     {t:"In agosto la Death Valley è rovente (spesso oltre 45°C): partite presto, tanta acqua, pieno di benzina, e tenete le passeggiate molto brevi nelle ore centrali."}
   ],
   hotels:[
-    {n:"The LINQ",pr:"~120",per:"x4",perks:["Sulla Strip"]},
-    {n:"Flamingo",pr:"~120",per:"x4",perks:["Sulla Strip"]},
+    {n:"Flamingo",pr:"85",per:"x4",perks:["Sulla Strip","Cancellazione"],book:true,sub:"prenotato · resort fee $57 + parcheggio $20/gg da pagare in loco"},
   ]},
-
+ 
  {date:"4 ago", scene:"zion", kick:"Utah · canyon rossi", title:"Zion → Bryce Canyon", night:"bryce",
   desc:"Si lascia Las Vegas per lo Zion, fra pareti rosse a strapiombo. In serata trasferimento a Bryce Canyon per la notte.",
   segs:[{from:"Las Vegas",to:"Zion NP",km:"260",tm:"2h30"},{from:"Zion NP",to:"Bryce Canyon",km:"150",tm:"2h"}],
@@ -420,11 +406,10 @@ const DAYS = [
     {n:"Angels Landing",tip:true,d:"La celebre cresta esposta con catene e vuoto su entrambi i lati: serve un permesso a lotteria e niente vertigini."},
     {n:"Riverside Walk",tip:true,d:"Passeggiata facile, piana e ombreggiata lungo il fiume; porta all'imbocco dei Narrows."},
   ],
-  notes:[{t:"Il trasferimento Zion → Bryce si può eventualmente spostare alla mattina seguente."}],
   hotels:[
-    {n:"Bryce View Lodge",pr:"160",per:"x4",perks:["Colazione","Cancellazione"],sub:"unica opzione disponibile"},
+    {n:"Bryce View Lodge",pr:"160",per:"x4",perks:["Colazione","Cancellazione"],book:true,sub:"unica opzione disponibile"},
   ]},
-
+ 
  {date:"5 ago", scene:"bryce", kick:"Utah · gli hoodoos", title:"Bryce Canyon → Page", night:"page",
   desc:"Mattina tra le guglie arancioni di Bryce, poi trasferimento verso Page con arrivo in tempo per rilassarsi o per l'Horseshoe Bend.",
   segs:[{from:"Bryce Canyon",to:"Page",km:"250",tm:"2h40"}],
@@ -438,12 +423,9 @@ const DAYS = [
     {n:"Lago Powell",tip:true,d:"Il grande lago artificiale turchese tra i canyon, con la diga di Glen Canyon: ottimo per il tramonto a Page."},
   ],
   hotels:[
-    {n:"Motel 6 Page",pr:"106",per:"x4",perks:["Cancellazione"]},
-    {n:"Red Rock & Dam Motel",pr:"117",per:"x4",perks:["Cancellazione"]},
-    {n:"Super 8",pr:"142",per:"x4",perks:["Colazione","Cancellazione"]},
-    {n:"Best Western",pr:"232",per:"x4",perks:["Colazione","Cancellazione"]},
+    {n:"Super 8",pr:"136",per:"x4",perks:["Colazione","Cancellazione"],book:true},
   ]},
-
+ 
  {date:"6 ago", scene:"monument", kick:"Arizona / Utah", title:"Page → Monument Valley", night:"monument",
   desc:"Mattina con l'Antelope Canyon, poi rotta verso Monument Valley per arrivare in tempo per il tramonto sulle grandi mesa.",
   segs:[{from:"Page",to:"Monument Valley",km:"210",tm:"2h10"}],
@@ -456,12 +438,11 @@ const DAYS = [
   ],
   notes:[
     {t:"Prenotare in anticipo il tour dell'Antelope Canyon."},
-    {t:"The View è già pieno (mail inviata). Confermato il Wetherill Inn."}
   ],
   hotels:[
-    {n:"Wetherill Inn",pr:"193",per:"x4",perks:["Colazione","Cancellazione"],book:true},
+    {n:"Wetherill Inn",pr:"197",per:"x4",perks:["Colazione","Cancellazione"],book:true},
   ]},
-
+ 
  {date:"7 ago", scene:"grandcanyon", kick:"Arizona", title:"Monument Valley → Grand Canyon", night:"grandcanyon",
   desc:"Ultima visita a Monument Valley e poi trasferimento al South Rim del Grand Canyon, con pernotto all'interno del parco.",
   segs:[{from:"Monument Valley",to:"Grand Canyon (South Rim)",km:"290",tm:"3h15"}],
@@ -472,15 +453,10 @@ const DAYS = [
     {n:"Valley Drive",d:"Ultimo giro tra le formazioni di Monument Valley prima di lasciare l'area al mattino."},
     {n:"Tramonto sul canyon",d:"I colori delle pareti che cambiano di continuo al calar del sole: provate Hopi Point o Yavapai Point."},
   ],
-  notes:[{t:"Pernotto interno al parco: prezzi in USD. Confermato il Maswik Lodge."}],
   hotels:[
     {n:"Maswik Lodge",pr:"213",per:"x4",perks:["Cancellazione"],cur:"$",book:true},
-    {n:"Bright Angel Lodge",pr:"160",per:"x4",perks:["solo doppie"],cur:"$"},
-    {n:"Yavapai Lodge",pr:"290",per:"x4",perks:[],cur:"$"},
-    {n:"Thunderbird Lodge",pr:"265",per:"x4",perks:[],cur:"$"},
-    {n:"Kachina Lodge",pr:"282",per:"x4",perks:[],cur:"$"},
   ]},
-
+ 
  {date:"8 ago", scene:"route66", kick:"Route 66 · Arizona", title:"Grand Canyon → Kingman", night:"kingman",
   desc:"Giornata ancora dedicata al Grand Canyon, poi in serata si imbocca la Route 66 passando da Williams e Seligman fino a Kingman.",
   segs:[{from:"Grand Canyon",to:"Kingman",km:"290",tm:"2h40"}],
@@ -492,14 +468,10 @@ const DAYS = [
     {n:"Seligman",d:"Il paese che ha fatto rinascere la Route 66: insegne vintage, auto d'epoca e atmosfera kitsch."},
     {n:"Hackberry General Store",tip:true,d:"Tappa nostalgica sulla Mother Road, tra vecchie pompe di benzina, cimeli e una Corvette rossa."},
   ],
-  notes:[{t:"Si potrebbe dormire a Williams/Seligman, ma i km slitterebbero al giorno dopo: meglio di no, è già lunga."}],
   hotels:[
-    {n:"Super 8 by Wyndham Kingman",pr:"80",per:"x4",perks:["Colazione","Cancellazione"],pref:true},
-    {n:"Motel 6",pr:"80",per:"x4",perks:["Cancellazione"]},
-    {n:"Baymont by Wyndham",pr:"110",per:"x4",perks:["Colazione","Cancellazione"]},
-    {n:"Ramada by Wyndham Kingman",pr:"121",per:"x4",perks:["Colazione","Cancellazione"]},
+    {n:"Motel 6",pr:"80",per:"x4",perks:["Cancellazione"],book:true},
   ]},
-
+ 
  {date:"9 ago", scene:"la-sunset", kick:"Route 66 · California", title:"Kingman → Los Angeles", night:"la",
   desc:"Ultimo tratto della Route 66 storica fino a Los Angeles, con arrivo nel pomeriggio nella città degli angeli.",
   segs:[{from:"Kingman",to:"Los Angeles",km:"520",tm:"5h"}],
@@ -511,7 +483,7 @@ const DAYS = [
   ],
   notes:[{t:"Giornata lunga (520 km): la deviazione per Oatman è suggestiva ma allunga i tempi, valutatela in base all'orario."}],
   hotels:[{tbd:"Alloggio a Los Angeles da definire (3 notti)"}]},
-
+ 
  {date:"10 ago", scene:"la-city", kick:"Los Angeles", title:"Los Angeles", night:"la",
   desc:"Giornata piena in città fra cinema, colline e oceano.",
   segs:[{stay:"Nessuno spostamento · giornata a Los Angeles"}],
@@ -524,7 +496,7 @@ const DAYS = [
     {n:"The Getty Center",tip:true,d:"Museo d'arte gratuito su una collina, raggiunto da una monorotaia, con architettura, giardini e vista sulla città."},
   ],
   hotels:[{tbd:"Stesso alloggio a Los Angeles"}]},
-
+ 
  {date:"11 ago", scene:"la-city", kick:"Los Angeles", title:"Los Angeles", night:"la",
   desc:"Seconda giornata piena: spiagge, downtown ed eventuale parco a tema.",
   segs:[{stay:"Nessuno spostamento · giornata a Los Angeles"}],
@@ -536,7 +508,7 @@ const DAYS = [
     {n:"The Broad / arte",tip:true,d:"Museo di arte contemporanea nel cuore di Downtown (ingresso gratuito): alternativa al parco a tema."},
   ],
   hotels:[{tbd:"Stesso alloggio a Los Angeles"}]},
-
+ 
  {date:"12 ago", scene:"coast", kick:"Pacific Coast Highway", title:"Los Angeles → San Francisco", night:"sf",
   desc:"Sveglia presto e risalita di tutta la costa in giornata, sulla litoranea, mantenendo le soste più belle del Pacifico. Arrivo a San Francisco in serata.",
   segs:[{from:"Los Angeles",to:"San Francisco",km:"~680",tm:"8h30 (+ soste)"}],
@@ -549,7 +521,7 @@ const DAYS = [
   ],
   notes:[{t:"È la giornata più lunga del viaggio: partite all'alba e, per arrivare a SF in serata, valutate di saltare qualche sosta o di tenere la US-101 (più veloce) nei tratti meno panoramici. Big Sur da solo è lento."}],
   hotels:[{tbd:"Alloggio a San Francisco (2 notti) da definire"}]},
-
+ 
  {date:"13 ago", scene:"sf", kick:"California · giorno pieno", title:"San Francisco", night:"sf",
   desc:"Giornata intera per vivere San Francisco con calma: colline, baia, quartieri e oceano, senza spostamenti in auto.",
   segs:[{stay:"Nessuno spostamento · giornata a San Francisco"}],
@@ -563,7 +535,7 @@ const DAYS = [
     {n:"Mission District",tip:true,d:"Il quartiere dei murales e dei migliori burrito della città: colore e street food."},
   ],
   hotels:[{tbd:"Stesso alloggio a San Francisco"}]},
-
+ 
  {date:"14 ago", scene:"sf", kick:"Rientro · volo per Roma", title:"San Francisco → SFO", night:"sf",
   desc:"Ultima mattina tranquilla in città, poi consegna dell'auto e aeroporto per il volo delle 15:15 verso casa.",
   segs:[{stay:"Mattina libera · poi SFO, volo 15:15 per Roma"}],
@@ -574,11 +546,11 @@ const DAYS = [
   ],
   hotels:[]},
 ];
-
+ 
 /* node -> first day index that overnights there (for marker clicks) */
 const NODE_DAY = {};
 DAYS.forEach((d,i)=>{ if(d.night && NODE_DAY[d.night]===undefined) NODE_DAY[d.night]=i; });
-
+ 
 /* ============================ SCENE ILLUSTRATIONS ============================ */
 function scene(n){
 const S={
@@ -593,7 +565,7 @@ sf:`<defs><linearGradient id="sf_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0"
 <rect x="434" y="38" width="15" height="120" fill="#b6442a"/><rect x="432" y="32" width="19" height="9" fill="#b6442a"/>
 <rect y="156" width="600" height="6" fill="#b6442a"/>
 <rect x="40" y="120" width="120" height="20" fill="#fff" opacity=".22"/>`,
-
+ 
 sierra:`<defs><linearGradient id="si_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe1e0"/><stop offset="1" stop-color="#eddfbf"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#si_s)"/>
 <circle cx="120" cy="54" r="24" fill="#f3dea6"/>
@@ -602,7 +574,7 @@ sierra:`<defs><linearGradient id="si_s" x1="0" y1="0" x2="0" y2="1"><stop offset
 <rect y="150" width="600" height="50" fill="#b79a6a"/>
 <path d="M250 200 L300 150 L330 150 L380 200Z" fill="#cdb281"/>
 <g fill="#4e6342"><path d="M70 168 L86 120 L102 168Z"/><path d="M60 178 L86 130 L112 178Z"/><path d="M110 172 L124 132 L138 172Z"/><path d="M470 172 L486 126 L502 172Z"/><path d="M462 182 L486 138 L510 182Z"/><path d="M520 176 L534 140 L548 176Z"/></g>`,
-
+ 
 yosemite:`<defs><linearGradient id="yo_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd7df"/><stop offset="1" stop-color="#e7dcc2"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#yo_s)"/>
 <path d="M120 160 L150 70 Q230 40 300 70 L330 160Z" fill="#7d6f63"/>
@@ -612,7 +584,7 @@ yosemite:`<defs><linearGradient id="yo_s" x1="0" y1="0" x2="0" y2="1"><stop offs
 <rect y="150" width="600" height="50" fill="#7f9168"/>
 <path d="M0 150 Q150 138 300 150 T600 146 V160 H0Z" fill="#6c7f57"/>
 <g fill="#3f5436"><path d="M30 162 L48 112 L66 162Z"/><path d="M20 174 L48 124 L76 174Z"/><path d="M540 164 L558 118 L576 164Z"/><path d="M530 176 L558 128 L586 176Z"/></g>`,
-
+ 
 sequoia:`<defs><linearGradient id="sq_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9d9b3"/><stop offset="1" stop-color="#cdb98f"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#sq_s)"/>
 <g opacity=".5" stroke="#fff" stroke-width="22"><line x1="200" y1="-20" x2="120" y2="220"/><line x1="420" y1="-20" x2="500" y2="220"/></g>
@@ -620,7 +592,7 @@ sequoia:`<defs><linearGradient id="sq_s" x1="0" y1="0" x2="0" y2="1"><stop offse
 <g fill="#7c4a2e"><rect x="100" y="100" width="42" height="100" rx="6"/><rect x="320" y="80" width="58" height="120" rx="8"/><rect x="470" y="110" width="36" height="90" rx="6"/></g>
 <g fill="#3f5436"><path d="M300 30 L349 0 L398 30Z" transform="translate(0,8)"/></g>
 <rect y="180" width="600" height="20" fill="#6b4a2c"/>`,
-
+ 
 deathvalley:`<defs><linearGradient id="dv_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4c167"/><stop offset=".6" stop-color="#eaa15a"/><stop offset="1" stop-color="#e4cf9c"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#dv_s)"/>
 <circle cx="300" cy="66" r="34" fill="#fff2cf"/><circle cx="300" cy="66" r="50" fill="#fff2cf" opacity=".35"/>
@@ -628,7 +600,7 @@ deathvalley:`<defs><linearGradient id="dv_s" x1="0" y1="0" x2="0" y2="1"><stop o
 <path d="M0 150 Q150 120 320 150 T600 138 V200 H0Z" fill="#d9a85e"/>
 <path d="M0 200 Q180 150 380 185 T600 168 V200 H0Z" fill="#c08a44"/>
 <path d="M0 200 Q220 175 600 196 V200Z" fill="#a87436"/>`,
-
+ 
 zion:`<defs><linearGradient id="zi_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9ec2d6"/><stop offset="1" stop-color="#e3d2b4"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#zi_s)"/>
 <path d="M0 0 L0 200 L210 200 L235 60 L180 0Z" fill="#b35733"/>
@@ -639,13 +611,13 @@ zion:`<defs><linearGradient id="zi_s" x1="0" y1="0" x2="0" y2="1"><stop offset="
 <path d="M250 200 L290 150 L320 150 L360 200Z" fill="#86a98e"/>
 <rect x="295" y="150" width="20" height="50" fill="#5f7d52"/>
 <g fill="#3f5436"><path d="M260 168 L276 132 L292 168Z"/><path d="M320 170 L336 134 L352 170Z"/></g>`,
-
+ 
 bryce:`<defs><linearGradient id="br_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fc0d8"/><stop offset="1" stop-color="#dfe7d6"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#br_s)"/>
 <rect y="150" width="600" height="50" fill="#9aae84"/>
 <g fill="#cf6a3a"><path d="M70 200 L78 70 L90 110 L100 70 L110 200Z"/><path d="M120 200 L128 90 L140 130 L150 88 L160 200Z"/><path d="M180 200 L188 60 L200 110 L210 64 L222 200Z"/><path d="M240 200 L248 96 L258 132 L268 92 L280 200Z"/><path d="M300 200 L309 74 L320 116 L330 70 L342 200Z"/><path d="M360 200 L368 100 L378 134 L388 96 L400 200Z"/><path d="M420 200 L430 66 L442 112 L452 70 L466 200Z"/><path d="M484 200 L492 98 L502 132 L512 94 L524 200Z"/></g>
 <g fill="#b0532b" opacity=".55"><path d="M95 200 L101 120 L112 200Z"/><path d="M205 200 L212 116 L226 200Z"/><path d="M325 200 L332 122 L346 200Z"/><path d="M445 200 L452 118 L468 200Z"/></g>`,
-
+ 
 monument:`<defs><linearGradient id="mv_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6b96a"/><stop offset=".55" stop-color="#e58a5b"/><stop offset="1" stop-color="#d7a070"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#mv_s)"/>
 <circle cx="300" cy="70" r="26" fill="#ffe7b0" opacity=".9"/>
@@ -655,7 +627,7 @@ monument:`<defs><linearGradient id="mv_s" x1="0" y1="0" x2="0" y2="1"><stop offs
 <path d="M280 150 L284 60 L356 60 L360 150Z" fill="#9a4828"/>
 <rect y="150" width="600" height="6" fill="#7d3620"/>
 <path d="M250 200 L300 154 L330 154 L380 200Z" fill="#c98a55" opacity=".7"/>`,
-
+ 
 grandcanyon:`<defs><linearGradient id="gc_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfdfe0"/><stop offset="1" stop-color="#e8d6b4"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#gc_s)"/>
 <path d="M0 70 H600 V96 H0Z" fill="#c98f5e" opacity=".5"/>
@@ -664,7 +636,7 @@ grandcanyon:`<defs><linearGradient id="gc_s" x1="0" y1="0" x2="0" y2="1"><stop o
 <path d="M0 144 Q180 124 360 150 T600 138 V180 H0Z" fill="#8e4f2e"/>
 <path d="M0 174 Q200 158 420 180 T600 168 V200 H0Z" fill="#743f26"/>
 <path d="M120 200 Q300 186 480 200" stroke="#cfe3e6" stroke-width="3" fill="none" opacity=".7"/>`,
-
+ 
 route66:`<defs><linearGradient id="r6_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2c873"/><stop offset="1" stop-color="#e0b27a"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#r6_s)"/>
 <circle cx="300" cy="56" r="22" fill="#fff0c8"/>
@@ -674,7 +646,7 @@ route66:`<defs><linearGradient id="r6_s" x1="0" y1="0" x2="0" y2="1"><stop offse
 <g stroke="#f3e7c8" stroke-width="4" stroke-dasharray="10 14"><line x1="300" y1="150" x2="300" y2="196"/></g>
 <g fill="#3a3a42"><rect x="120" y="120" width="5" height="60"/><rect x="100" y="124" width="45" height="5"/><rect x="470" y="120" width="5" height="60"/><rect x="452" y="124" width="45" height="5"/></g>
 <g transform="translate(300,70)"><path d="M-30 -16 L30 -16 L30 18 L0 30 L-30 18Z" fill="#1f4f86" stroke="#fff" stroke-width="2.5"/><text x="0" y="-2" font-family="Hanken Grotesk" font-weight="800" font-size="9" fill="#fff" text-anchor="middle">ROUTE</text><text x="0" y="14" font-family="Fraunces" font-weight="800" font-size="16" fill="#fff" text-anchor="middle">66</text></g>`,
-
+ 
 "la-sunset":`<defs><linearGradient id="ls_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f5a85f"/><stop offset=".5" stop-color="#ef7e6b"/><stop offset="1" stop-color="#caa3a0"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#ls_s)"/>
 <circle cx="300" cy="96" r="40" fill="#ffd98c"/>
@@ -682,7 +654,7 @@ route66:`<defs><linearGradient id="r6_s" x1="0" y1="0" x2="0" y2="1"><stop offse
 <rect y="172" width="600" height="28" fill="#8f6a73"/>
 <g stroke="#3a2a30" stroke-width="6" fill="none"><line x1="90" y1="200" x2="90" y2="96"/><line x1="510" y1="200" x2="510" y2="86"/><line x1="150" y1="200" x2="150" y2="120"/></g>
 <g fill="#3a2a30"><path d="M90 96 q-26 -10 -34 6 q24 -4 34 6 q10 -10 34 -6 q-8 -16 -34 -6Z"/><path d="M510 86 q-28 -10 -36 6 q26 -4 36 6 q10 -10 36 -6 q-8 -16 -36 -6Z"/><path d="M150 120 q-20 -8 -26 5 q18 -3 26 5 q8 -8 26 -5 q-6 -12 -26 -5Z"/></g>`,
-
+ 
 "la-city":`<defs><linearGradient id="lc_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe0e4"/><stop offset="1" stop-color="#ecddc0"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#lc_s)"/>
 <path d="M0 110 L120 70 L260 104 L400 64 L600 100 V120 H0Z" fill="#a7b79a" opacity=".6"/>
@@ -690,7 +662,7 @@ route66:`<defs><linearGradient id="r6_s" x1="0" y1="0" x2="0" y2="1"><stop offse
 <rect y="170" width="600" height="30" fill="#b79a6a"/>
 <g stroke="#3f5436" stroke-width="5" fill="none"><line x1="70" y1="200" x2="70" y2="130"/><line x1="120" y1="200" x2="120" y2="120"/><line x1="520" y1="200" x2="520" y2="124"/></g>
 <g fill="#3f5436"><path d="M70 130 q-20 -8 -26 5 q18 -3 26 5 q8 -8 26 -5 q-6 -12 -26 -5Z"/><path d="M120 120 q-22 -8 -28 5 q20 -3 28 5 q8 -8 28 -5 q-6 -12 -28 -5Z"/><path d="M520 124 q-22 -8 -28 5 q20 -3 28 5 q8 -8 28 -5 q-6 -12 -28 -5Z"/></g>`,
-
+ 
 coast:`<defs><linearGradient id="co_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd9dd"/><stop offset="1" stop-color="#e6dabc"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#co_s)"/>
 <circle cx="110" cy="56" r="22" fill="#f5e2ac"/>
@@ -700,7 +672,7 @@ coast:`<defs><linearGradient id="co_s" x1="0" y1="0" x2="0" y2="1"><stop offset=
 <path d="M0 168 Q150 156 300 168 T600 162" stroke="#cfe6e8" stroke-width="3" fill="none" opacity=".7"/>
 <rect y="186" width="600" height="14" fill="#d8c79a"/>
 <path d="M0 186 Q120 176 260 184 T600 180 V200 H0Z" fill="#e6d5a6"/>`,
-
+ 
 coast2:`<defs><linearGradient id="c2_s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3c780"/><stop offset=".55" stop-color="#e79f7a"/><stop offset="1" stop-color="#9fb4a6"/></linearGradient></defs>
 <rect width="600" height="200" fill="url(#c2_s)"/>
 <circle cx="470" cy="60" r="26" fill="#fff0c8" opacity=".9"/>
@@ -714,7 +686,7 @@ coast2:`<defs><linearGradient id="c2_s" x1="0" y1="0" x2="0" y2="1"><stop offset
 const inner = S[n] || S.sf;
 return `<svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
 }
-
+ 
 /* ============================ HERO PANORAMA ============================ */
 function heroPanorama(){
 return `<svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -735,32 +707,50 @@ return `<svg viewBox="0 0 1440 620" preserveAspectRatio="xMidYMid slice" xmlns="
 <g stroke="#f3d9a0" stroke-width="3" stroke-dasharray="14 16" opacity=".7" fill="none"><path d="M700 620 Q716 540 720 478"/></g>
 </svg>`;
 }
-
+ 
 /* ============================ RENDER STATS ============================ */
 function daysToStart(){
   const d=new Date(TRIP.start+"T00:00:00");
   const now=new Date(); now.setHours(0,0,0,0);
   return Math.round((d-now)/86400000);
 }
+function computeBooked(){
+  let total=0, count=0;
+  DAYS.forEach(d=>{
+    (d.hotels||[]).forEach(h=>{
+      if(h.book && h.pr && !h.tbd && h.cur!=='$'){
+        const p=parseFloat(String(h.pr).replace(/[^0-9.]/g,''));
+        if(!isNaN(p) && p>0){ total+=p; count++; }
+      }
+    });
+  });
+  return {total, count, avg: count>0? Math.round(total/count):0};
+}
 function renderStats(){
   const cd=daysToStart();
   const cdLabel= cd>0?"Giorni alla partenza": (cd===0?"Si parte oggi!":"Viaggio in corso");
   const cdVal= cd>0?cd:(cd===0?0:Math.abs(cd));
+  const bk=computeBooked();
+  const avgPP=Math.round(bk.avg/4);
   const stats=[
-    {n:16,l:"Giorni"},
-    {n:15,l:"Notti"},
-    {n:"~4.000",l:"Km totali",raw:4000,suf:""},
-    {n:4,l:"Stati USA"},
-    {n:6,l:"Parchi nazionali"},
-    {n:cdVal,l:cdLabel,count:true},
+    {n:16,l:"Giorni",raw:16},
+    {n:"~4.000",l:"Km totali",raw:4000,pre:"~",fmt:true},
+    {n:4,l:"Stati USA",raw:4},
+    {n:6,l:"Parchi nazionali",raw:6},
+    {n:"9/15",l:"Notti prenotate"},
+    {n:"€"+avgPP,l:"Media/notte · a persona",raw:avgPP,pre:"€"},
+    {n:cdVal,l:cdLabel,count:true,raw:cdVal},
   ];
   document.getElementById('statGrid').innerHTML = stats.map(s=>`
     <div class="stat ${s.count?'count':''}">
-      <div class="n" data-n="${s.raw!==undefined?s.raw:(typeof s.n==='number'?s.n:'')}" ${s.raw!==undefined?'data-pre="~" data-fmt="1"':''}>${s.count? '0' : s.n}</div>
+      <div class="n"
+        ${s.raw!==undefined?`data-n="${s.raw}"`:''} 
+        ${s.pre?`data-pre="${s.pre}"`:''} 
+        ${s.fmt?'data-fmt="1"':''}>${s.count?'0':s.n}</div>
       <div class="l">${s.l}</div>
     </div>`).join('');
 }
-
+ 
 /* ============================ RENDER DAYS ============================ */
 function segHTML(s){
   if(s.stay) return `<div class="seg stay">🅿 ${s.stay}</div>`;
@@ -774,9 +764,10 @@ function hotelHTML(h){
   if(h.tbd) return `<div class="hotel"><div class="h-main"><div class="h-name">${h.tbd}</div></div><span class="flag tbd">Da definire</span></div>`;
   const cur=h.cur||'€';
   const flags = (h.book?`<span class="flag b">✓ Prenotato</span>`:'') + (h.pref?`<span class="flag p">★ Preferito</span>`:'');
+  const nameEl = h.n;
   return `<div class="hotel ${h.book?'book':''} ${h.pref?'pref':''}">
     <div class="h-main">
-      <div class="h-name">${h.n} ${flags}</div>
+      <div class="h-name">${nameEl} ${flags}</div>
       <div class="h-perks">${[h.per?('Quadrupla '):''].join('')}${(h.perks||[]).join(' · ')}${h.sub?` · ${h.sub}`:''}</div>
     </div>
     <div class="h-price"><span class="v">${cur}${h.pr}</span> <span class="u">/ notte</span></div>
@@ -814,7 +805,7 @@ function dayHTML(d,i){
 function renderDays(){
   document.getElementById('dayList').innerHTML = DAYS.map(dayHTML).join('');
 }
-
+ 
 /* ============================ MAP ============================ */
 const VB={w:1000,h:560}, PAD={l:78,r:78,t:96,b:74};
 let PROJ=null;
@@ -880,7 +871,7 @@ function buildMap(){
     <circle r="22" fill="none" stroke="#8d3a20" stroke-width="1.4"/>
     <path d="M0 -20 L6 0 L0 6 L-6 0Z" fill="#bd4f2e"/><path d="M0 20 L6 0 L0 -6 L-6 0Z" fill="#8d3a20" opacity=".6"/>
     <text y="-26" text-anchor="middle" font-family="Fraunces" font-size="12" fill="#8d3a20" font-weight="700">N</text></g>`;
-
+ 
   const svg=document.getElementById('routemap');
   svg.innerHTML=`
     <g>${states}</g>
@@ -889,7 +880,7 @@ function buildMap(){
     <path id="routeline" d="${dPath}" fill="none" stroke="#bd4f2e" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 9" opacity=".85"/>
     <path id="hl" fill="none" stroke="#8d3a20" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity="0"/>
     ${markers}`;
-
+ 
   // animate route draw
   const rl=document.getElementById('routeline');
   const len=rl.getTotalLength();
@@ -898,7 +889,7 @@ function buildMap(){
   rl.style.transition='stroke-dashoffset 2.4s ease';
   requestAnimationFrame(()=>{ rl.style.strokeDashoffset=0; });
   setTimeout(()=>{ rl.style.transition=''; rl.style.strokeDasharray='6 9'; rl.style.strokeDashoffset=0; },2500);
-
+ 
   // marker clicks
   svg.querySelectorAll('.mk[data-day]').forEach(g=>{
     g.addEventListener('click',()=>{ const i=+g.getAttribute('data-day'); selectDay(i,true); });
@@ -944,7 +935,7 @@ function selectDay(i,scroll){
     if(scroll) card.scrollIntoView({behavior:'smooth',block:'center'});
   }
 }
-
+ 
 /* ============================ COUNT-UP + REVEAL ============================ */
 function countUp(){
   document.querySelectorAll('.stat .n[data-n]').forEach(el=>{
@@ -959,7 +950,7 @@ function reveal(){
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,k)=>{ el.style.transitionDelay=(Math.min(k,6)*40)+'ms'; io.observe(el); });
 }
-
+ 
 /* ============================ INIT ============================ */
 document.getElementById('heroScene').innerHTML=heroPanorama();
 renderStats();
